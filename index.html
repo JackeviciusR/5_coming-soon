@@ -8,14 +8,54 @@
     <!-- reset/init -->
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/layout.css">
     <!-- 3rd party css -->
     <!-- component -->
+    <link rel="stylesheet" href="./css/clock.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/mouse.css">
     <!-- custom -->
     <link rel="stylesheet" href="./css/custom.css">
+
+    <!-- failo ikelimo tvarka svabi, paskutinis laimi, bet stebi ir specifiskuma id, class ir tab -->
 </head>
 
+<!--
+pirmuma (kas virsesnis) lemia specifiskumas:
+speceficity(id, class, tag)
+stipriausias id, tada class, o tag silpniausias
+-->
 <body>
-    Coming soon CONTENT
+    <div class="container hero bg-main-color">
+        <div class="row-short">
+            <img src="./img/coming-soon-logo.png" alt="Logo">
+            <h1>Coming soon</h1>
+            <p>HERO Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque error dolore odit atque vitae quae aliquid magni veniam quibusdam possimus adipisci enim nulla molestias, quo provident sed consequatur ullam.</p>
+            <div class="clock">
+                CLOCK
+            </div>
+            <form class="form">
+                SUBSCRIBE FORM
+            </form>
+            <div class="mouse">
+                MOUSE
+            </div>
+        </div>
+    </div>
+    <main class="container">
+        <div class="row">
+            <div class="column left">LEFT CONTENT</div>
+            <div class="column right">RIGHT CONTENT</div>
+        </div>
+    </main>
+    <footer class="container bg-main-color">
+        <div class="row">
+            SOCIAL
+        </div>
+        <div class="row-short">
+            BOTTOM TEXTS
+        </div>
+    </footer>
 
     <script src="./js/main.js" type="module"></script>
 </body>
