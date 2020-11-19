@@ -6,22 +6,28 @@
     .container > .row-short {
         display: inline-block;
         width: 600px;
-        margin-left: calc(50% - 300px);
-        margin-right: calc(50% - 300px);
-
+        margin: 0 calc(50% - 300px);
+        /* kaip naudojamas -> margin: top right bottom left */
+        /* margin (taip pat ir padding) veikia simetriskai, pvz:
+        margin: 10px; -> margin: 10px 10px 10px 10px;
+        margin: 10px 20px; -> margin: 10px 20px 10px 20px;
+        margin: 10px 20px 30px; -> margin 10px 20px 30px 20px; */
+        /* 
+        margin - atsistumia
+        padding - issipucia */
         /* background-color: antiquewhite; */
     }
     .container > .row {
         display: inline-block;
         width: 1000px;
-        margin-left: calc(50% - 500px);
-        margin-right: calc(50% - 500px);
+        margin: 0 calc(50% - 500px);
 
         /* background-color: aquamarine; */
     }
         .container > .row > .column {
             display: inline-block;
             float: left;
+            /* float: left; - ignoruojas, nes display: inline-block; */
         }
             .container > .row > .column.left {
                 width: 50%;
@@ -33,44 +39,43 @@
                 /* background-color: tomato; */
             }
 
-            @media (max-width: 1100px) {
-                .container > .row {
-                    width: 800px;
-                    margin-left: calc(50% - 400px);
-                    margin-right: calc(50% - 400px);
-                    /* background-color: tomato; */
-                }
+@media (max-width: 1100px) {
+    .container > .row {
+        width: 800px;
+        margin: 0 calc(50% - 400px);
+        /* top == bottom; right == left */
+        /* background-color: tomato; */
+    }
+}
+
+@media (max-width: 900px) {
+    .container > .row {
+        width: 600px;
+        margin: 0 calc(50% - 300px);
+        /* background-color: olivedrab; */
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+        .container > .row-short {
+            width: 100%;
+            margin: 0;
+        }
+        .container > .row {
+            width: 100%;
+            margin: 0;
+        }
+            .container > .row > .column.left {
+                width: 100%;
             }
-            
-            @media (max-width: 900px) {
-                .container > .row {
-                    width: 600px;
-                    margin-left: calc(50% - 300px);
-                    margin-right: calc(50% - 300px);
-                    /* background-color: olivedrab; */
-                }
+            .container > .row > .column.right {
+                width: 100%;
+                margin: 0;
+                margin-top: calc(var(--section-padding) * 2);
+                /* pakeicia margin: top 0 0 0; top reiksme */
             }
-            
-            @media (max-width: 700px) {
-                .container {
-                    padding-left: 20px;
-                    padding-right: 20px;
-                }
-                    .container > .row-short {
-                        width: 100%;
-                        margin-left: 0;
-                    }
-                    .container > .row {
-                        width: 100%;
-                        margin-left: 0;
-                    }
-                        .container > .row > .column.left {
-                            width: 100%;
-                        }
-                        .container > .row > .column.right {
-                            width: 100%;
-                            margin-left: 0;
-                            margin-right: 0;
-                            margin-top: calc(var(--section-padding) * 2);
-                        }
-            }
+}
