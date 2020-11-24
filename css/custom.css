@@ -3,6 +3,18 @@
 /* layout */
 .container.hero {
     padding-bottom: var(--section-padding);
+    background-image: url(..//img/hero-image.jpg);
+    background-size: cover;
+    background-position: bottom center;
+    /* prikabiname nuotrauka ir neleidziam jai judeti */
+    background-attachment: fixed;
+    /* minimalus hero's aukstis, tam, kad
+    detalizuojant vidiniai elementai tilptu
+    ir neiseinu is tevinio elemento.
+    min - nes leidzia teviniam issipusti,
+    jei yra daugiau elementu, tada jis
+    pleciasi, o vaikai neiseina is namu*/
+    min-height: 100vh; 
 }
 
 footer.container {
