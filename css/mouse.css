@@ -1,3 +1,53 @@
 
 
-.mouse {}
+.mouse {
+    display: inline-block;
+    width: 20px;
+    height: 30px;
+    border: 3px solid #fff;
+    border-radius: 100px;
+}
+
+    .mouse > .wheel {
+        display: inline-block;
+        width: 3px;
+        height: 6px;
+        border-radius: 2px;
+        background-color: #fff;
+        /* jei norime pvz ideti i vidu paveiksliuka */
+        /* background-image: url(../img/mouse.jpeg);
+        background-size: contain; */
+        margin-top: 50px;
+        /* bus prie @keyframe peliukas */
+        animation-name: peliukas;
+        animation-duration: 0.85s;
+        /* kiek kartu kartoti animacija */
+        animation-iteration-count: infinite;
+    }
+
+    .mouse > .wheel:hover {
+        /* kai su pelyte pagaunama, sustabdoma animacija */
+        animation-play-state: freeze;
+
+    }
+
+/* scenarijus ka daryti */
+/* kaip animacija turi prasideti ir pasibaigti */
+@keyframes peliukas {
+    /* santykinis pasiskirstymas*/
+    /* nurodytame intervale */
+    0% {
+        margin-top: 5px;
+        background-color: #ffff;
+        /* nuo kokios padeties prades suktis */
+        /* transform: rotate(0deg); */
+    }
+    50% {
+        background-color: #ffff;
+    }
+    100% {
+        margin-top: 16px;
+        background-color: #fff0;
+        /* transform: rotate(360deg); */
+    }
+}
