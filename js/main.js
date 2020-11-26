@@ -1,1 +1,6 @@
-console.log('JS is running...');
+// console.log('JS is running...');
+
+import { renderSocials } from "./components/socials/renderSocials.js";
+import { socialsData } from './data/socialsData.js';
+
+renderSocials('footer > .row', socialsData);
