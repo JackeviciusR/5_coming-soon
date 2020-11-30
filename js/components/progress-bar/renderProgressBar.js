@@ -1,12 +1,19 @@
+import { isValidSingleProgressBar } from './isValidSingleProgressBar.js';
+
 
 /**
  * Progress bar komponento generavimas
  * @param {string} selector CSS like selectorius, kaip rasti vieta, kur sugeneruoti turini
  * @param {string} title Progress bar pavadinimas
  * @param {number} value Progress bar reiksme procentais
- * @returns {boolean} Funkcijai tinkamai suveikus grazinas `true`, priesingu atveju - `false`
+ * @returns {boolean} Funkcijai tinkamai suveikus grazina `true`, priesingu atveju - `false`
  */
 function renderProgressBar(selector, title, value) {
+
+    if (!isValidSingleProgressBar({ selector, title, value })) {
+        return false;
+    }
+
     const HTML = `<div class="progress-bar">
                     <div class="top">
                         <div class="label">${title}</div>
@@ -20,6 +27,14 @@ function renderProgressBar(selector, title, value) {
                 </div>`;
 
     const DOM = document.querySelector(selector);
+
+    if (!DOM) {
+        console.error('ERROR: nerasta nurodyta DOM vieta.');
+        return false;
+    }
+
+    // efektyvesnis nei .innerHTML, nes ne is naujo ideda, o prideda
+    // .insertAdjacentHTML('pozicija: beforestart/afterstart/beforeend/afterend', idedamas turinys);
     DOM.insertAdjacentHTML('beforeend', HTML);
 
     return true;
