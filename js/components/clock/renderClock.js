@@ -1,3 +1,6 @@
+import { countTimeDiff } from './countTimeDiff.js';
+ 
+
 // selector
 
 /**
@@ -23,61 +26,44 @@ function renderClock(selector) {
         return false;
     }
 
+    // funkcija grazina objekta: {}
+    const time = countTimeDiff();
     
-    // einamieji metai (pvz 2020)
-    const date = new Date();
-    const currentYear = date.getFullYear();
-
-    // galutine data = einamieji metai + 1 (2020 +1 = 2021)
-    const newYear = currentYear + 1;
-    // sukonstruojame pilna data: ${metai}--01-01 00:00:00
-    const newYearDate = `${newYear}-01-01 00:00:00`;
-    const newYearObject = new Date(newYearDate);
-    const newYearMiliseconds = newYearObject.getTime();// gaunamas milisekundemis
-
-    console.log(`newYearMiliseconds: ${newYearMiliseconds}`);
-
-    // einamasis laikas yyyy-mm-dd hh:mm:ss
-    // gaunamas milisekundemis
-    const currentTimeMiliseconds = date.getTime();
-
-        // console.log(currentTimeMiliseconds);
-
-    // suskaiciuojame laiko skirtuma
-    const timeLeft = newYearMiliseconds - currentTimeMiliseconds;
-    console.log(timeLeft);
-    // paverciam i sekundes
-    let secondLeft = timeLeft / 1000;
-
-    // is skirtumo apskaiciuojame likusias dienas, valandas, minutes ir sekundes
-    const days = Math.floor(secondLeft / (24 * 60 * 60));
-    console.log(days);
-    secondLeft -= days * 24 * 60 * 60;
-    const hours = Math.floor(secondLeft / (60 * 60));
-    secondLeft  -= hours * 60 * 60;
-    const minutes = Math.floor(secondLeft / 60);
-    secondLeft -= minutes * 60;
-    const seconds = Math.floor(secondLeft);
-
-
+    
     const HTML =`<div class="time-box">
-                    <div class="time">${days}</div>
+                <div class="time">${time.days}</div>
                     <span>Days</span>
                 </div>
                 <div class="time-box">
-                    <div class="time">${hours}</div>
+                    <div class="time">${time.hours}</div>
                     <span>Hours</span>
                 </div>
                 <div class="time-box">
-                    <div class="time">${minutes}</div>
+                    <div class="time">${time.minutes}</div>
                     <span>Minutes</span>
                 </div>
                 <div class="time-box">
-                    <div class="time">${seconds}</div>
+                    <div class="time">${time.seconds}</div>
                     <span>Seconds</span>
                 </div>`;
 
+
     DOM.innerHTML = HTML;
+    const timesDOM = DOM.querySelectorAll('.time');
+
+    // paleidziamas laikrodis
+    let timePassed = 0;
+
+    
+    // funkcija setInterval(vykdoma funkcija, laikas);
+    // laikas (ms) siuo atveju nurodo, kas kiek laiko bus iskvieciama viduje esanti funkcija
+    setInterval(() => {
+        const time = countTimeDiff();
+        timesDOM[0].innerText = time.days;
+        timesDOM[1].innerText = time.hours;
+        timesDOM[2].innerText = time.minutes;
+        timesDOM[3].innerText = time.seconds;
+    }, 1000);
 
     return true;
 
