@@ -39,8 +39,7 @@ function renderSocials(selector, data) {
             continue;
         }
 
-        HTML += `<a href="${item.link}" target="_blank" class="fa fa-${item.icon}" aria-hidden="true"></a>`;
-        // console.log(item.link, item.icon);
+        HTML += `<a href="${item.link}" target="_blank" class="social fa fa-${item.icon}" aria-hidden="true"></a>`;        // console.log(item.link, item.icon);
     }
 
     // console.log(HTML);
@@ -52,7 +51,7 @@ function renderSocials(selector, data) {
     }
  
     // return
-    socialsDOM.innerHTML = HTML;
+    socialsDOM.innerHTML +=HTML;
 
     return true;
 }
