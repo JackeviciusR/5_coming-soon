@@ -5,15 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming soon</title>
+    <link rel="shortcut icon" href="./favicon.png" type="image/png">
     <!-- reset/init -->
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/layout.css">
     <!-- 3rd party css -->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
     <!-- component -->
+    <link rel="stylesheet" href="./css/button.css">
     <link rel="stylesheet" href="./css/clock.css">
     <link rel="stylesheet" href="./css/form.css">
     <link rel="stylesheet" href="./css/mouse.css">
+    <link rel="stylesheet" href="./css/progress-bar.css">
     <!-- custom -->
     <link rel="stylesheet" href="./css/custom.css">
 
@@ -32,31 +36,101 @@ stipriausias id, tada class, o tag silpniausias
             <h1>Coming soon</h1>
             <p>HERO Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, itaque error dolore odit atque vitae quae aliquid magni veniam quibusdam possimus adipisci enim nulla molestias, quo provident sed consequatur ullam.</p>
             <div class="clock">
-                CLOCK
+                <!-- cia laikrodis istatomas per rederClock funkcija -->
             </div>
             <form class="form">
-                SUBSCRIBE FORM
+                <form class="form">
+                    <input type="email" placeholder="Email" required>
+                    <!-- <input type="submit value="Subscribe now!"> -->
+                    <div class="btn">Subscribe now!</div>
+                </form>
             </form>
-            <div class="mouse">
-                MOUSE
-            </div>
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
         </div>
     </div>
     <main class="container">
         <div class="row">
-            <div class="column left">LEFT CONTENT</div>
-            <div class="column right">RIGHT CONTENT</div>
+            <div class="column left">
+                <div class="column right">RIGHT CONTENT</div>	                <h2>About startup</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus impedit temporibus labore, <a href="#">Matrox</a> veniam tenetur ea quaerat cumque dolor distinctio.</p>
+                    
+                    <!-- progress-bar generuojama su JS -->
+                    <!-- <div class="progress-bar">
+                        <div class="top">
+                            <div class="label">Web</div>
+                            <div class="value">90%</div>
+                        </div>
+                        <div class="bottom">
+                            <div class="bar" style="width: 90%;">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="top">
+                            <div class="label">Web</div>
+                            <div class="value">80%</div>
+                        </div>
+                        <div class="bottom">
+                            <div class="bar" style="width: 80%;">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="top">
+                            <div class="label">Web</div>
+                            <div class="value">40%</div>
+                        </div>
+                        <div class="bottom">
+                            <div class="bar" style="width: 40%;">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+                <div class="column right">
+                    <h2>Have any question?</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia explicabo doloribus quisquam <a href="mailto:vardenis@pastelis.xyz">vardenis@pastelis.xyz</a> natus autem dolorem. Eaque, molestias assumenda.</p>
+                    <form class="form">
+                        <input type="text" placeholder="name" required>
+                        <input type="email" placeholder="email" required>
+                        <textarea maxlength="1000" placeholder="message" required></textarea>
+                        <!-- <input type="submit value="Send message"> -->
+                        <div class="btn">Send message</div>
+                    </form>
+                </div>
         </div>
     </main>
     <footer class="container bg-main-color">
         <div class="row">
-            SOCIAL
+            <!-- mytukas: nuskrolinimo i virsu mygtukas '^' -->
+            <a href="#" class="btn btn-secondary-color circle fa fa-angle-up"></a>
+            
+            <!-- generuojama su JS -->
+            <!-- <a href="#" target="_blank" class="social fa fa-facebook" aria-hidden="true"></a>
+            <a href="#" target="_blank" class="social fa fa-twitter" aria-hidden="true"></a>
+            <a href="#" target="_blank" class="social fa fa-dribbble" aria-hidden="true"></a>
+            <a href="#" target="_blank" class="social fa fa-tumblr" aria-hidden="true"></a>
+            <a href="#" target="_blank" class="social fa fa-linkedin" aria-hidden="true"></a>
+            <a href="#" target="_blank" class="social fa fa-instagram" aria-hidden="true"></a>
+            <a href="#" target="_blank" class="social fa fa-rss" aria-hidden="true"></a> -->
         </div>
         <div class="row-short">
-            BOTTOM TEXTS
+            <img src="./img/logo-footer.png" alt="matrox logo">
+            <div class="text-trio">
+                <div class="text">Copyright &copy; 2020 <a href="#">Matrox</a></div>
+                <div class="text">All rights reserved</div>
+                <div class="text">Designed by <a href="#">TrendyTheme</a></div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias <a href="#">200+</a> quia consequuntur distinctio libero qui atque incidunt <a href="#">Matrox</a> saepe nemo.</p>
         </div>
     </footer>
 
+    <!-- type = module - failai bus imami is skirtingu failu, galima naudoti import/export -->
     <script src="./js/main.js" type="module"></script>
 </body>
 
