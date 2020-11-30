@@ -1,3 +1,8 @@
+/* skrolinimo efektas, skrolinimo greitis, laikas yra konst., pakeisti galima tik su JS */
+html {
+    scroll-behavior: smooth;
+}
+
 body,
 body * {
     margin: 0;
