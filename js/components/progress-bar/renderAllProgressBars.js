@@ -28,6 +28,25 @@ function renderAllProgressBars(data) {
         renderProgressBar(bar.selector, bar.title, bar.value);
     }
 
+    const allProgressBars = document.querySelectorAll('.progress-bar');
+    console.log(allProgressBars);
+
+    addEventListener('scroll', () => {
+        const screenBottom = innerHeight + scrollY;
+
+        for (let bar of allProgressBars) {
+            const  barBottom = bar.offsetHeight + bar.offsetTop;
+            console.log(barBottom);
+            
+                if (screenBottom >= barBottom) {
+                    console.log('Pamaciau');
+                    bar.classList.add('animate');
+                }
+        }
+
+
+    });
+
     return true;
 
 }

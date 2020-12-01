@@ -13,7 +13,7 @@ function countTimeDiff() {
     const newYearObject = new Date(newYearDate);
     const newYearMiliseconds = newYearObject.getTime();// gaunamas milisekundemis
 
-    console.log(`newYearMiliseconds: ${newYearMiliseconds}`);
+    // console.log(`newYearMiliseconds: ${newYearMiliseconds}`);
 
     // einamasis laikas yyyy-mm-dd hh:mm:ss
     // gaunamas milisekundemis
@@ -23,13 +23,13 @@ function countTimeDiff() {
 
     // suskaiciuojame laiko skirtuma
     const timeLeft = newYearMiliseconds - currentTimeMiliseconds;
-    console.log(timeLeft);
+    // console.log(timeLeft);
     // paverciam i sekundes
     let secondLeft = timeLeft / 1000;
 
     // is skirtumo apskaiciuojame likusias dienas, valandas, minutes ir sekundes
     const days = Math.floor(secondLeft / (24 * 60 * 60));
-    console.log(days);
+    // console.log(days);
     secondLeft -= days * 24 * 60 * 60;
     const hours = Math.floor(secondLeft / (60 * 60));
     secondLeft  -= hours * 60 * 60;

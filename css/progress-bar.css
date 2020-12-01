@@ -36,15 +36,27 @@
         }
             .progress-bar > .bottom > .bar > .loader {
                 display: inline-block;
-                width: 100%;
+                /* width: 100%; */
+                width: 0;
                 height: 100%;
                 background-color: var(--main-color);
                 
+                /* ANIMACIJA PERMETAME i .progress-bar.animate > .bottom ... */
                 /* animation-name: loading;
                 animation-iteration-count: 1;
                 animation-duration: 2s; */
                 /* trumpiau galima taip uzrasyti: */
-                animation: loading 2s;
+                /* animation: loading 2s; */
+            }
+
+            .progress-bar.animate > .bottom > .bar > .loader {
+                /* animation-name: loading;
+                animation-iteration-count: 1;
+                animation-duration: 2s; */
+                /* trumpiau galima taip uzrasyti: */
+                animation: loading 2s forwards;
+                /* kai pasibaigia, islieka rezultatas, t.y uzlaudinimas */
+                /* animation-fill-mode: forwards; */ 
             }
 
 
