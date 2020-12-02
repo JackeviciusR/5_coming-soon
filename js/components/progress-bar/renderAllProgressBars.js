@@ -29,17 +29,17 @@ function renderAllProgressBars(data) {
     }
 
     const allProgressBars = document.querySelectorAll('.progress-bar');
-    console.log(allProgressBars);
+    // console.log(allProgressBars);
 
     addEventListener('scroll', () => {
         const screenBottom = innerHeight + scrollY;
 
         for (let bar of allProgressBars) {
             const  barBottom = bar.offsetHeight + bar.offsetTop;
-            console.log(barBottom);
+            // console.log(barBottom);
             
                 if (screenBottom >= barBottom) {
-                    console.log('Pamaciau');
+                    // console.log('Pamaciau');
                     bar.classList.add('animate');
                 }
         }
