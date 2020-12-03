@@ -9,11 +9,16 @@ import { socialsData } from './data/socialsData.js';
 
 import { formValidator } from './components/form-validator/formValidator.js';
 
+import { Toast } from './components/toast/Toast.js';
+
 renderSocials('footer > .row', socialsData);
 
 renderClock('.clock');
 
 renderAllProgressBars(progressBarData);
+
+const toast = new Toast();
+toast.render();
 
 formValidator('.hero .form');
 // naudojant elementu vardus, nereikia nuorodoje deti taska pries elemento varda, kaip: main, input ir pan.s
