@@ -8,7 +8,8 @@
     background-color: #fff;
     box-shadow: 0 2px 8px #0008;
 }
-    .toast.visable {
+    /* 'visible' pridedamas Toast.js faile */
+    .toast.visible {
         display: block;
     }
 
@@ -24,7 +25,7 @@
         color: #333;
     }
 
-        .toast > .fa.fa.check {
+        .toast > .fa.fa-check {
             background-color: green;
             color: #fff;
         }
@@ -34,19 +35,19 @@
             background-color: red;
             color: #fff;
         }
-
+        /* 'error' pridedamas Toast.js faile */
         .toast.error > .fa.fa-check {
             display: none;
         }
 
-        .toast.error > .fa.fa.fa-shield {
+        .toast.error > .fa.fa-shield {
             display: inline-block;
         }
 
         .toast > p {
             display: inline-block;
             float: left;
-            width: 100px;
+            width: 180px;
             padding: 10px;
             line-height: 20px;
             font-size: 16px;

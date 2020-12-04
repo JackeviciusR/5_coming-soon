@@ -19,6 +19,8 @@ renderAllProgressBars(progressBarData);
 
 const toast = new Toast();
 toast.render();
+// toast.show('error', 'Cia yra klaida!!!');
+toast.show('success', 'Buvo gera diena!!! ;)');
 
 formValidator('.hero .form');
 // naudojant elementu vardus, nereikia nuorodoje deti taska pries elemento varda, kaip: main, input ir pan.s
