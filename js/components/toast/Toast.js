@@ -3,7 +3,7 @@
 class Toast {
     constructor() {
         this.selector = 'body';
-        this.renderIntoParentDOM = ndocument.querySelector(this.selector);
+        this.renderIntoParentDOM = document.querySelector(this.selector);
         this.DOM = null;        // reprezentuoja pati naujai sugeneruota elementa
         this.textDOM = null;    // elementas, kuri atvaizduosime ivykus klaida
         console.log(`creating toast...`);

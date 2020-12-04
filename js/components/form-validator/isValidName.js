@@ -16,13 +16,17 @@ function isValidName(name) {
 
 
     // turi buti tik abeceles raides
-    const abc = '';
+    const abc = 'qwertyuiopasdfghjklzxcvbnm';
     for(let letter of name) {
         if(!abc.includes(letter)) {
             return `Varde panaudota neleistinas simbolis (${letter})`;
         }
     }
 
+    const realNameFormat = name[0].toUpperCase() + name.slice(1).toLowerCase();
+    if (realNameFormat !== name) {
+        return `Varda turi sudaryti pirmoji didzioji raide, o likusios raides yra mazosios, pvz.: Vardenis`
+    }
     // pirma raide didzioji, visos kitos mazosios
     // if (name.t) {} // ASD -> asd, Asd -> rim, asd -> asd
     
