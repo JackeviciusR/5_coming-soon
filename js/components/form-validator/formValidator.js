@@ -1,4 +1,4 @@
-import { isValidEmail, isValidName, isValidText } from './validatorRules.js'
+import { validation } from './validatorRules.js'
 
 // formu validavimas
 
@@ -45,31 +45,13 @@ function formValidator(selector) {
             const text = input.value;
 
 
-            if (validationRule === 'name') {
-                const nameError = isValidName(text);
-                if (nameError !== true) { // grazina klaida arba true
-                    console.log(nameError);
-                    errorCount++;
-                }
+            const validationFunction = validation[validationRule];
+            const error = validationFunction(text);
 
-            }
-
-            if (validationRule === 'email') {
-                const emailError = isValidEmail(text);
-                if (emailError !== true) {
-                    console.log(emailError);
+            if (error !== true) {
+                console.log(error);
                 errorCount++;
-                }
             }
-
-            if (validationRule === 'text') {
-                const textError = isValidText(text);
-                if ( textError !== true) {
-                    console.log(textError);
-                    errorCount++;
-                }
-            }
-
 
         }
 
