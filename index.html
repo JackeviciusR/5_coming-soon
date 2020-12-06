@@ -100,9 +100,10 @@ stipriausias id, tada class, o tag silpniausias
                     <form class="form">
                         <!-- data-* - po data irasome savo reiksme, pvz.: data-validation="XXXX" -->
                         <!-- data-validation reiksme paimama formValidator.js faile su input.dataset.validation ir priskiriama validacijai  -->
-                        <input type="text" placeholder="Name" required data-validation="name">
-                        <input type="email" placeholder="Email" required data-validation="email">
-                        <textarea maxlength="1000" placeholder="Message" required data-validation="text"></textarea>
+                        <!-- required - tikrina pati programa ar tuscias laukas ir ismeta info, mums to nereikia, todel istriname -->
+                        <input type="text" placeholder="Name" data-validation="name">
+                        <input type="email" placeholder="Email" data-validation="email">
+                        <textarea maxlength="1000" placeholder="Message" data-validation="text"></textarea>
                         <input type="submit" value="Send message" class="btn">
                         <!-- <div class="btn">Send message</div> -->
                     </form>

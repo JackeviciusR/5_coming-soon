@@ -16,7 +16,10 @@ function isValidName(name) {
 
 
     // turi buti tik abeceles raides
-    const abc = 'qwertyuiopasdfghjklzxcvbnm';
+    let abc = 'qwertyuiopasdfghjklzxcvbnm';
+    // pridedame didziasias raides
+    abc = abc.concat('', abc.toUpperCase());
+
     for(let letter of name) {
         if(!abc.includes(letter)) {
             return `Varde panaudota neleistinas simbolis (${letter})`;

@@ -1,12 +1,20 @@
 
 // naudojamas pavaizduoti vartotojui error'a
 class Toast {
+    /**
+     * Konstruktorius inicijuojantis (paruosiantis) pranesima rodanti elementa
+     * @constructor
+     */
     constructor() {
         this.selector = 'body';
         this.renderIntoParentDOM = document.querySelector(this.selector);
         this.DOM = null;        // reprezentuoja pati naujai sugeneruota elementa
         this.textDOM = null;    // elementas, kuriame atvaizduosime pranesima ivykus klaidai
+        this.closeDOM = null;   // elementas, skirtas uzdaryti toast'a
+        this.closeTimer = null; // laikrodis, reguliuojantis kada uzdaryti pranesima
+
         console.log(`creating toast...`);
+        console.log(this);
     }
 
     /**
@@ -38,13 +46,24 @@ class Toast {
             this.DOM.classList.add('error');
         }
 
-    }
+        // isjungus paciam laikas toliau skaiciuoja, reikia but atsargiam (todel prie toast.hide() isjungiame su clearTimeout())
+        this.closeTimer = setTimeout( () => {
+            this.hide();
+        }, 10000);
 
+    }
+    /**
+     * Metodas paslepiantis praesimo elementa
+     */
     hide() {
         this.DOM.classList.remove('visible');
+        // isvalome laikrodzio skaiciavima paleista per toast.show()
+        clearTimeout(this.closeTimer);
     }
 
-
+    /**
+     * Metodas sugeneruojantis pranesimo elementa
+     */
     render() {
         const HTML = `<div class="toast">
                         <i class="fa fa-check"></i>
@@ -57,6 +76,14 @@ class Toast {
         this.renderIntoParentDOM.insertAdjacentHTML('beforeend',HTML);
         this.DOM = this.renderIntoParentDOM.querySelector('.toast');
         this.textDOM = this.DOM.querySelector('p');
+
+        // Toast'e 'X' pozicija
+        this.closeDOM = this.DOM.querySelector('.fa-times');
+
+        // uzejus ant taost'o ir paspaudus 'X', issijungia toast'as
+        this.closeDOM.addEventListener('click', () => {
+            this.hide();
+        });
     }
 }
 

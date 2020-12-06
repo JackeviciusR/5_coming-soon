@@ -2,7 +2,14 @@ import { validation } from './validatorRules.js'
 
 // formu validavimas
 
-function formValidator(selector) {
+/**
+ * Formos validavima atliekanti funkcija, kuri automatiskai atpazista kokiems ivesties laukams kokias reikia taikyti validacijos taisykles ir pagal tai atvaizduoja atotinkamus pranesimus
+ * 
+ * @param {string} selector CSS like selector
+ * @param {Object} toastObject Objektas i kuri reikia kreiptis, norint atvaizduoti pranesimus: tiek sekmes, tiek klaidos atveju.
+ * @param {boolean} Funkcijai sekmingai suveikus grazinamas `true`, priesingu atveju `false`
+ */
+function formValidator(selector, toastObject) {
 
     // selektoriaus pazymetas elementas grazinamas kaip objektas
     const formDOM = document.querySelector(selector);
@@ -13,8 +20,9 @@ function formValidator(selector) {
     console.log(submitBtnDOM);
 
     if (!submitBtnDOM) {
-        console.error(`ERROR: formoje nerasta input:submit mygtukas (nei vieno input ar textarea elementu), t.y. elementas nera sukurtas index.html faile`);
-        return false;
+        // console.error(`ERROR: formoje nerasta input:submit mygtukas (nei vieno input ar textarea elementu), t.y. elementas nera sukurtas index.html faile`);
+        // return false;
+        toastObject.show('error', 'ERROR: formoje nerasta input:submit mygtukas (nei vieno input ar textarea elementu), t.y. elementas nera sukurtas index.html faile');
     }
 
     const allInputDOMs = formDOM.querySelectorAll('input:not([type="submit"])');
@@ -25,12 +33,14 @@ function formValidator(selector) {
     console.log('all: ', allElements);
 
     if (allElements.length === 0) {
-        console.error(`ERROR: formoje nerasta nei vieno input ar textarea elementu`);
-        return false;
+        // console.error(`ERROR: formoje nerasta nei vieno input ar textarea elementu`);
+        // return false;
+        toastObject.show('error', 'ERROR: formoje nerasta nei vieno input ar textarea elementu');
     }
 
     // ka darytys jei submit mygtukas bus paspaustas
-    submitBtnDOM.addEventListener('click', () => {
+    submitBtnDOM.addEventListener('click', event => {
+        event.preventDefault();
         let errorCount = 0;
         // console.clear();
         console.log('all_2: ', allElements);
@@ -49,17 +59,21 @@ function formValidator(selector) {
             const error = validationFunction(text);
 
             if (error !== true) {
-                console.log(error);
+                // console.log(error);
+                toastObject.show('error', error)
                 errorCount++;
             }
 
         }
 
         if (errorCount === 0) {
-            console.log('Siumciam info...');
+            // console.log('Siumciam info...');
+            toastObject.show('success', 'Siunciam info...');
         }
     })
 
+    return true;
+    
 }
 
 export { formValidator }

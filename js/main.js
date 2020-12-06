@@ -22,6 +22,6 @@ toast.render();
 // toast.show('error', 'Cia yra klaida!!!');
 toast.show('success', 'Buvo gera diena!!! ;)');
 
-formValidator('.hero .form');
+formValidator('.hero .form', toast);
 // naudojant elementu vardus, nereikia nuorodoje deti taska pries elemento varda, kaip: main, input ir pan.s
-formValidator('main .form');
+formValidator('main .form', toast);
