@@ -12,6 +12,7 @@
     cursor: pointer;
     box-shadow: 0 4px 8px #0008;
     text-align: center;
+    border: none;
 }
 
     .btn:hover {
@@ -25,6 +26,7 @@
         width: 40px;
         border-radius: 50%;
     }
+    /* --main-color saknis yra prie bendru kintamuju (variables.css) */
     .btn.btn-main-color {
         background-color: var(--main-color);
         color: #fff;
@@ -37,6 +39,7 @@
             background-color: #fff;
             color: var(--main-color);
         }
+    /* // --secondary-color yra prie bendru kintamuju (variables.css) */
     .btn.btn-secondary-color {
         background-color: var(--secondary-color);
         color: #fff;
